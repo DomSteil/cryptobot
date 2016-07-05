@@ -1,3 +1,4 @@
 "use strict"
 
-coinbase
+var CoinbaseExchange = require('coinbase-exchange');
+var publicClient = new CoinbaseExchange.PublicClient();
