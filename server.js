@@ -1720,3 +1720,44 @@ controller.hears(['Configure Products', 'New Configuration'], 'direct_message,di
     bot.startConversation(message, askProductName);
 
 });
+
+
+controller.hears(['Withdraw Bitcoin', 'Withdraw', ], 'direct_message,direct_mention,mention', (bot, message) => {
+
+    let amount,
+        account;
+
+    let askAmount = (response, convo) => {
+
+        convo.ask("How much would you like to withdraw?", (response, convo) => {
+            amount = response.text;
+            askAccount(response, convo);
+            convo.next();
+        });
+
+    };
+
+    let askAccount = (response, convo) => {
+
+        convo.ask("Which account would you like to withdraw to?", (response, convo) => {
+            account = response.text;
+            coinbase.withdraw({Amount: amount, account: account})
+                .then(name => {
+                    bot.reply(message, {
+                        text: "I withdraw the Bitcoin"
+
+                    });
+                    convo.next();
+                })
+                .catch(error => {
+                    bot.reply(message, error);
+                    convo.next();
+                });
+        });
+
+    };
+
+    bot.reply(message, "OK, I can help you with that!");
+    bot.startConversation(message, askAmount);
+
+});
