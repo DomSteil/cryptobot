@@ -17,5 +17,13 @@
   },
   "author": "",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DomSteil/cryptobot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/DomSteil/cryptobot/issues"
+  },
+  "homepage": "https://github.com/DomSteil/cryptobot#readme",
   "description": ""
 }
