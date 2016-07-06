@@ -36,7 +36,8 @@ controller.hears(['help'], 'direct_message,direct_mention,mention', (bot, messag
     "Log an ISR"
     "Buy some BTC"
     "Sell for BTC"
-    "Get BTC Orders"`
+    "Get BTC Orders"
+    "Change BTC Orders"`
     });
 });
 
